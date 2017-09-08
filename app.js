@@ -1,8 +1,12 @@
 var express = require('express');
-var app = express();
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var path = require('path');
+var routes = require('./routes/routes');
+var app = express();
+
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
 
 //middleware
 app.use(bodyParser.json());
@@ -10,6 +14,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 //serve static client
 app.use(express.static(path.join(__dirname, 'client')));
+app.use('/generate', routes);
 //catch 404s
 app.use((req,res,next) => {
     let err = new Error('Not Found');
