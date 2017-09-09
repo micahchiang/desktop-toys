@@ -2,6 +2,7 @@
   "name": "desktop-toys",
   "version": "0.0.1",
   "dependencies": {
+    "amazon-product-api": "^0.4.4",
     "body-parser": "^1.17.2",
     "cookie-parser": "^1.4.3",
     "ejs": "^2.5.7",
@@ -9,6 +10,7 @@
     "node-sass": "^4.5.3",
     "package.json": "^2.0.1",
     "path": "^0.12.7",
+    "request": "^2.81.0",
     "socket.io": "^2.0.3",
     "typescript": "^2.5.2"
   },

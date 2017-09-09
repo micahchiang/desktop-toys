@@ -1,11 +1,7 @@
 var express = require('express');
+var productController = require('../controllers/generate_product.controller');
 var router = express.Router();
 
-router.get('/', (req,res,next) => {
-    console.log('message received');
-    res.send(
-        'message sent to frontend'
-    );
-});
+router.get('/', productController.productGenerate);
 
 module.exports = router;
