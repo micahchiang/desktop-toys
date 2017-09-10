@@ -1,5 +1,6 @@
 var amazon = require('amazon-product-api');
 var util = require('util');
+var utilities = require('../helpers/Utilities');
 
 var client = amazon.createClient({
     awsId: 'AKIAIEILMMUXXKHQYMKQ',
@@ -8,15 +9,15 @@ var client = amazon.createClient({
 });
 
 exports.productGenerate = (req, res) => {
-    console.log('GOT TO CONTROLLER METHOD');
     client.itemSearch({
-        keywords: 'lego',
-        MaximumPrice: '10.00',
+        keywords: 'bobblehead',
+        responseGroup: 'Small, Images'
     }).then((response) => {
-        var pick = response[Math.floor(Math.random() * response.length)];
-        console.log(pick);
         console.log('RESPONSE RECEIVED');
-        res.send(pick);
+        var pick = response[Math.floor(Math.random() * response.length)];
+        var payload = utilities.cleanData(pick);
+        console.log(payload);
+        res.send(payload);
     }).catch((err) => {
         console.log(err);
     });
