@@ -1,6 +1,7 @@
 var amazon = require('amazon-product-api');
-var util = require('util');
 var utilities = require('../helpers/Utilities');
+var terms = require('./search_terms.json');
+var util = require('util');
 
 var client = amazon.createClient({
     awsId: 'AKIAIEILMMUXXKHQYMKQ',
@@ -9,14 +10,13 @@ var client = amazon.createClient({
 });
 
 exports.productGenerate = (req, res) => {
+    let searchTerm = terms.keywords[utilities.randomizeIndex(terms.keywords)];
     client.itemSearch({
-        keywords: 'bobblehead',
+        keywords: searchTerm,
         responseGroup: 'Small, Images'
     }).then((response) => {
-        console.log('RESPONSE RECEIVED');
-        var pick = response[Math.floor(Math.random() * response.length)];
+        var pick = response[utilities.randomizeIndex(response)];
         var payload = utilities.cleanData(pick);
-        console.log(payload);
         res.send(payload);
     }).catch((err) => {
         console.log(err);

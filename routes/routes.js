@@ -1,6 +1,6 @@
 var express = require('express');
-var productController = require('../controllers/generate_product.controller');
 var router = express.Router();
+var productController = require('../controllers/generate_product.controller');
 
 router.get('/', productController.productGenerate);
 

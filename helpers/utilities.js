@@ -30,6 +30,11 @@ var Utilities = {
             }
         }
         return imageProps;
+    },
+
+    randomizeIndex: function(arr) {
+        let index = Math.floor(Math.random() * arr.length);
+        return index;
     }
 
 }
