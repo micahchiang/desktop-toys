@@ -28,6 +28,14 @@ body {
 
 .product__container {
   flex-grow: 5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#productContainer {
+  height: 500px;
+  width: 500px;
 }
 
 .button__container {
