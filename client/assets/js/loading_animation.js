@@ -2,7 +2,12 @@ const colors = [
     '#40CDFF',
     '#2EE8E8',
     '#33FFC6',
-    '#335FFF'
+    '#335FFF',
+    '#A962FF',
+    '#BE4DE8',
+    '#FF55FF',
+    '#694DE8',
+    '#5564FF'
 ];
 
 let canvas;
@@ -46,7 +51,7 @@ function Particle(x,y,radius,color) {
     this.radius = radius;
     this.color = color;
     this.radians = Math.random() * Math.PI * 2;
-    this.velocity = 0.05;
+    this.velocity = 0.02;
     this.distanceFromCenter = randomIntFromRange(50,120);
 
     this.update = () => {
@@ -74,7 +79,7 @@ function Particle(x,y,radius,color) {
 // Implementation
 function initParticles() {
     particles = [];
-    for(let i = 0; i < 50; i++) {
+    for(let i = 0; i < 100; i++) {
         const radius = (Math.random() * 2) + 1;
         particles.push(new Particle(canvas.width / 2, canvas.height / 2, radius, randomColor(colors)));
     }
@@ -84,7 +89,7 @@ function initParticles() {
 
 function animate() {
     requestAnimationFrame(animate);
-    context.fillStyle = 'rgba(64,205,255,0.05)';
+    context.fillStyle = 'rgba(255,255,255,0.05)';
     context.fillRect(0,0,canvas.width,canvas.height);
     particles.forEach(particle => {
         particle.update();
