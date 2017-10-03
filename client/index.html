@@ -4,9 +4,23 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <script src="./assets/js/index.js"></script>
+    <link rel="stylesheet" href="assets/styles/index.css">
 </head>
 <body>
-    <h1>Desktop Toys</h1>
-    <button onclick="generate()">Generate Toy</button>
+    <main class="app__container">
+        <header class="header">
+            <h1 class="header__title">Desktop Toys</h1>
+            <p class="header__text">Discover the things you didn't know you needed for your battlestation.</p>
+        </header>
+        <section class="product__container">
+            <div id="productContainer" class="content__loading__animation"></div>
+        </section>
+        <section class="button__container">
+            <button class="generate__btn" onclick="generate()">Discover A Toy</button>
+        </section>
+        <footer class="footer">
+
+        </footer>
+    </main>
 </body>
 </html>
