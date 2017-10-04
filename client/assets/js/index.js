@@ -15,16 +15,22 @@ function generate() {
         });
         requestData('GET', 'http://localhost:8000/generate').then((details) => {
             let product = JSON.parse(details);
-            particles.forEach(particle => {
-               particle.velocity = 0.02;
-            });
+            setTimeout(() => {
+                particles.forEach(particle => {
+                   particle.velocity = 0.02;
+                });
+            }, 3500);
             setTimeout(() => {
                 canvas.style.display = 'none';
                 buildLink(product);
             }, 5000);
+            productIsDisplayed = true;
         }).catch((err) => {
             console.log('Error occurred', err.statusText);
         });
+    } else {
+        removeLink();
+        generate();
     }
 }
 
@@ -48,19 +54,34 @@ function requestData(method, url) {
                 statusText: xhr.statusText
             });
         };
-        xhr.send();
+        setTimeout(() => {
+            xhr.send();
+        }, 2500); //limit rate of request
     });
 }
 
 function buildLink(data) {
     let aTag = document.createElement('a');
     let img = document.createElement('img');
+    aTag.setAttribute('id', 'productLink');
     aTag.setAttribute('href', data.DetailPageURL);
     aTag.setAttribute('target', '_blank');
     img.setAttribute('src', data.image.URL);
-    img.style.height = '60vh';
-    img.style.width = 'auto';
     aTag.appendChild(img);
     aTag.className += 'fade-in';
+    img.className += 'product__image';
+    productContainer.className += 'productContainer-image';
     productContainer.appendChild(aTag);
+}
+
+function removeLink() {
+    let aTag = document.getElementById('productLink');
+    setTimeout(() => {
+        canvas.style.display = 'block';
+    }, 1700);
+    setTimeout(() => {
+        aTag.parentNode.removeChild(aTag);
+    }, 1500);
+    aTag.className += ' fade-out';
+    productIsDisplayed = false;
 }

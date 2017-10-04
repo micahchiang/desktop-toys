@@ -9,6 +9,8 @@ var client = amazon.createClient({
     awsTag: 'mkccorp-20'
 });
 
+
+
 exports.productGenerate = (req, res) => {
     let searchTerm = terms.keywords[utilities.randomizeIndex(terms.keywords)];
     client.itemSearch({
@@ -19,6 +21,6 @@ exports.productGenerate = (req, res) => {
         var payload = utilities.cleanData(pick);
         res.send(payload);
     }).catch((err) => {
-        console.log(err);
+        console.log(err.Error);
     });
 };
