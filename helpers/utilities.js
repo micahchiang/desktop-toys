@@ -13,6 +13,15 @@ var Utilities = {
             if(obj.hasOwnProperty(key) && key === 'LargeImage') {
                 payload['image'] = this.retrieveImage(obj[key]);
             }
+            if(obj.hasOwnProperty(key) && key === 'ItemAttributes') {
+                let attributesUnformatted = obj[key][0];
+                let attributes = _.mapValues(attributesUnformatted, (d) => {
+                    return d[0];
+                });
+                for(var prop in attributes) {
+                    payload[prop] = attributes[prop];
+                }
+            }
         }
         return payload;
     },

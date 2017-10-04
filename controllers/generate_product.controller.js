@@ -15,7 +15,7 @@ exports.productGenerate = (req, res) => {
     let searchTerm = terms.keywords[utilities.randomizeIndex(terms.keywords)];
     client.itemSearch({
         keywords: searchTerm,
-        responseGroup: 'Small, Images'
+        responseGroup: 'Medium, Images'
     }).then((response) => {
         var pick = response[utilities.randomizeIndex(response)];
         var payload = utilities.cleanData(pick);
