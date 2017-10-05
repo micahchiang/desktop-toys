@@ -1,9 +1,11 @@
 let productIsDisplayed = false;
 let productContainer;
+let productSection;
 
 (()=> {
     document.addEventListener('DOMContentLoaded', () => {
         productContainer = document.getElementById('productContainer');
+        productSection = document.getElementById('productSection');
     });
 })();
 
@@ -24,6 +26,7 @@ function generate() {
             setTimeout(() => {
                 canvas.style.display = 'none';
                 buildLink(product);
+                buildInfo(product);
             }, 5000);
             productIsDisplayed = true;
         }).catch((err) => {
@@ -31,6 +34,7 @@ function generate() {
         });
     } else {
         removeLink();
+        removeInfo();
         generate();
     }
 }
@@ -73,6 +77,30 @@ function buildLink(data) {
     img.className += 'product__image';
     productContainer.className += 'productContainer-image';
     productContainer.appendChild(aTag);
+    // productContainer.className += ' slide-left';
+}
+
+function buildInfo(data) {
+    let container = document.createElement('div');
+    let title = document.createElement('h1');
+    let feature = document.createElement('p');
+    let brand = document.createElement('p');
+    let cta = document.createElement('a');
+    container.setAttribute('id', 'productInfo');
+    title.innerText = data.Title;
+    title.style.fontWeight = '500';
+    feature.innerText = data.Feature;
+    brand.innerText = 'Brand: ' + data.Brand;
+    cta.setAttribute('href', data.DetailPageURL);
+    cta.setAttribute('target', '_blank');
+    cta.innerText = 'Buy on Amazon';
+    cta.className += 'generate__btn';
+    container.appendChild(title);
+    container.appendChild(feature);
+    container.appendChild(brand);
+    container.appendChild(cta);
+    container.className += 'productContainer-details fade-in';
+    productSection.appendChild(container);
 }
 
 function removeLink() {
@@ -85,4 +113,12 @@ function removeLink() {
     }, 1500);
     aTag.className += ' fade-out';
     productIsDisplayed = false;
+}
+
+function removeInfo() {
+    let container = document.getElementById('productInfo');
+    setTimeout(() => {
+        container.parentNode.removeChild(container);
+    }, 1500);
+    container.className += ' fade-out';
 }
