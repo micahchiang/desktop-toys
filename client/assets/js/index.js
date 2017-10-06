@@ -59,9 +59,7 @@ function requestData(method, url) {
                 statusText: xhr.statusText
             });
         };
-        setTimeout(() => {
-            xhr.send();
-        }, 2500); //limit rate of request
+        xhr.send();
     });
 }
 
@@ -94,7 +92,7 @@ function buildInfo(data) {
     cta.setAttribute('href', data.DetailPageURL);
     cta.setAttribute('target', '_blank');
     cta.innerText = 'Buy on Amazon';
-    cta.className += 'generate__btn';
+    cta.className += 'purchase__btn';
     container.appendChild(title);
     container.appendChild(feature);
     container.appendChild(brand);
