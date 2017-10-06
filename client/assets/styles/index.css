@@ -112,6 +112,16 @@ body {
   border: none;
   cursor: pointer;
   text-decoration: none;
+  transition: all .2s ease;
+}
+
+.generate__btn:hover {
+ background-color: rgba(47, 135, 232, 0.7);
+}
+
+.generate__btn-disabled {
+  pointer-events: none;
+  background-color: rgba(192, 192, 192, 0.5);
 }
 
 .purchase__btn {
@@ -125,12 +135,17 @@ body {
   text-decoration: none;
 }
 
+.purchase__btn:hover {
+  background-color: rgba(229, 211, 44, 0.7);
+}
+
 .footer {
   flex-grow: 1;
   display: flex;
   align-items: center;
   justify-content: center;
   height: 10vh;
+  padding: 0 1em;
 }
 
 .footer p {
@@ -149,5 +164,13 @@ body {
 
   .generate__btn {
     font-size: 4em;
+  }
+
+  #productSection {
+    flex-direction: column;
+  }
+
+  .footer p {
+    font-size: 16px;
   }
 }

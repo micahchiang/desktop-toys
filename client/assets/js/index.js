@@ -1,16 +1,18 @@
 let productIsDisplayed = false;
 let productContainer;
 let productSection;
+let generateBtn;
 
 (()=> {
     document.addEventListener('DOMContentLoaded', () => {
         productContainer = document.getElementById('productContainer');
         productSection = document.getElementById('productSection');
+        generateBtn = document.getElementById('generateBtn');
     });
 })();
 
 function generate() {
-
+    generateBtn.className += ' generate__btn-disabled';
     if(!productIsDisplayed) {
         particles.forEach(particle => {
             particle.velocity = 0.05;
@@ -27,6 +29,7 @@ function generate() {
                 canvas.style.display = 'none';
                 buildLink(product);
                 buildInfo(product);
+                generateBtn.classList.remove('generate__btn-disabled');
             }, 5000);
             productIsDisplayed = true;
         }).catch((err) => {

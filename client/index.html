@@ -1,9 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Global Site Tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-107727577-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-107727577-1');
+    </script>
+
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Desktop Toys</title>
     <script src="./assets/js/index.js"></script>
+    <link rel="shortcut icon" href="assets/favicon.ico">
     <link rel="stylesheet" href="assets/styles/index.css">
 </head>
 <body>
@@ -18,7 +29,7 @@
             </div>
         </section>
         <section class="button__container">
-            <a class="generate__btn" onclick="generate()">Discover A Toy</a>
+            <a id="generateBtn" class="generate__btn" onclick="generate()">Discover A Toy</a>
         </section>
         <footer class="footer">
             <p>
