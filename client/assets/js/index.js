@@ -19,7 +19,6 @@ function generate() {
         });
         requestData('POST', '/generate').then((details) => {
             let product = JSON.parse(details);
-            console.log(product);
             setTimeout(() => {
                 particles.forEach(particle => {
                    particle.velocity = 0.02;
