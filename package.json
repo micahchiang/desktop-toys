@@ -3,7 +3,7 @@
   "decription": "discover toys to put on your desk",
   "scripts": {
     "start": "node app.js"
-  }
+  },
   "version": "0.0.1",
   "dependencies": {
     "amazon-product-api": "^0.4.4",
