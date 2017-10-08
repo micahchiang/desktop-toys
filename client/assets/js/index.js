@@ -17,7 +17,7 @@ function generate() {
         particles.forEach(particle => {
             particle.velocity = 0.05;
         });
-        requestData('GET', 'http://localhost:3000/generate').then((details) => {
+        requestData('POST', '/generate').then((details) => {
             let product = JSON.parse(details);
             console.log(product);
             setTimeout(() => {

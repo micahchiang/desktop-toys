@@ -14,6 +14,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 //serve static client
 app.use(express.static(path.join(__dirname, 'client')));
+// app.use('/', routes);
 app.use('/generate', routes);
 //catch 404s
 app.use((req,res,next) => {
@@ -28,6 +29,8 @@ app.use((err,req,res,next) => {
     res.render('error');
 });
 
-app.listen(3000, () => {
-    console.log('listening at 8000');
+let port = process.env.PORT || 3000;
+
+app.listen(port, () => {
+    console.log('listening at ' + port);
 });
