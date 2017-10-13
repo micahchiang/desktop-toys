@@ -1,10 +1,12 @@
+@import url('https://fonts.googleapis.com/css?family=Yantramanav');
+
 body {
   background: #ffffff;
   margin: 0;
 }
 
 .app__container {
-  font-family: Helvetica;
+  font-family: 'Yantramanav Regular', Helvetica;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -17,20 +19,32 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
+  flex-direction: row;
   flex-grow: 1;
-  color: white;
+  color: #000000;
   width: 100%;
-  background: linear-gradient(to bottom right, #40CDFF, #2E87E8);
-  height: 20vh;
 }
 
 .header__title {
-  font-weight: 500;
+  font-weight: 100;
+  font-size: 10vw;
+  letter-spacing: 15px;
+  margin: 0;
 }
 
-.header__text {
-  text-align: center;
+.header__title-space-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.header__title-spacer {
+  height: 5em;
+  width: 5em;
+  min-width: 5em;
+  min-height: 5em;
+  background-color: #000000;
+  border-radius: 45px 29px 41px 29px;
 }
 
 #productSection {
@@ -154,8 +168,14 @@ body {
 }
 
 @media only screen and (max-device-width: 768px) {
+  .header {
+    justify-content: left;
+    align-items: left;
+    flex-direction: column;
+  }
+
   .header__title {
-    font-size: 4em;
+    font-size: 9em;
   }
 
   .header__text {
