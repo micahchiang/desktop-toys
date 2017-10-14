@@ -14,6 +14,7 @@
     <meta charset="UTF-8">
     <title>Desktop Toys</title>
     <script src="./assets/js/index.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
     <link rel="shortcut icon" href="assets/favicon.ico">
     <link rel="stylesheet" href="assets/styles/index.css">
 </head>
@@ -30,9 +31,26 @@
             <div id="productContainer">
                 <canvas id="canvas"></canvas>
             </div>
-        </section>
-        <section class="button__container">
-            <a id="generateBtn" class="generate__btn" onclick="generate()">Discover A Toy</a>
+            <section class="product__title-section">
+                <p id="productTitle" class="product__title"></p>
+            </section>
+            <section class="button__section">
+                <section class="generate__product-container">
+                    <div id="generateContainer" class="btn-container">
+                        <div id="generateBtn" onclick="generate()" class="generate__btn">
+                            <a>REFRESH</a>
+                        </div>
+                        <p id="loadingText" class="loading__text">LOADING GOODIES...</p>
+                    </div>
+                </section>
+                <section class="product__cta-container">
+                    <div id="productInfoContainer" class="btn-container btn-container__hidden">
+                        <div class="purchase__btn">
+                            <a id="purchaseBtn">BUY NOW</a>
+                        </div>
+                    </div>
+                </section>
+            </section>
         </section>
         <footer class="footer">
             <p>

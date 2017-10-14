@@ -2,17 +2,27 @@ let productIsDisplayed = false;
 let productContainer;
 let productSection;
 let generateBtn;
+let generateContainer;
+let productInfoContainer;
+let purchaseBtn;
+let productTitle;
 
 (()=> {
     document.addEventListener('DOMContentLoaded', () => {
         productContainer = document.getElementById('productContainer');
         productSection = document.getElementById('productSection');
         generateBtn = document.getElementById('generateBtn');
+        generateContainer = document.getElementById('generateContainer');
+        productInfoContainer = document.getElementById('productInfoContainer');
+        purchaseBtn = document.getElementById('purchaseBtn');
+        productTitle = document.getElementById('productTitle');
+        generate();
     });
 })();
 
 function generate() {
     generateBtn.className += ' generate__btn-disabled';
+    generateContainer.className += ' generate__btn-container-loading';
     if(!productIsDisplayed) {
         particles.forEach(particle => {
             particle.velocity = 0.05;
@@ -29,6 +39,7 @@ function generate() {
                 buildLink(product);
                 buildInfo(product);
                 generateBtn.classList.remove('generate__btn-disabled');
+                generateContainer.classList.remove('generate__btn-container-loading');
             }, 5000);
             productIsDisplayed = true;
         }).catch((err) => {
@@ -81,26 +92,11 @@ function buildLink(data) {
 }
 
 function buildInfo(data) {
-    let container = document.createElement('div');
-    let title = document.createElement('h1');
-    let feature = document.createElement('p');
-    let brand = document.createElement('p');
-    let cta = document.createElement('a');
-    container.setAttribute('id', 'productInfo');
-    title.innerText = data.Title;
-    title.style.fontWeight = '500';
-    feature.innerText = data.Feature;
-    brand.innerText = 'Brand: ' + data.Brand;
-    cta.setAttribute('href', data.DetailPageURL);
-    cta.setAttribute('target', '_blank');
-    cta.innerText = 'Buy on Amazon';
-    cta.className += 'purchase__btn';
-    container.appendChild(title);
-    container.appendChild(feature);
-    container.appendChild(brand);
-    container.appendChild(cta);
-    container.className += 'productContainer-details fade-in';
-    productSection.appendChild(container);
+    purchaseBtn.setAttribute('href', data.DetailPageURL);
+    purchaseBtn.setAttribute('target', '_blank');
+    productTitle.innerText = data.Title;
+    productInfoContainer.classList.add('btn-container__visible');
+    productTitle.classList.add('product__title-visible');
 }
 
 function removeLink() {
@@ -113,12 +109,11 @@ function removeLink() {
     }, 1500);
     aTag.className += ' fade-out';
     productIsDisplayed = false;
+    productIsDisplayed = false;
 }
 
 function removeInfo() {
-    let container = document.getElementById('productInfo');
-    setTimeout(() => {
-        container.parentNode.removeChild(container);
-    }, 1500);
-    container.className += ' fade-out';
+    productInfoContainer.classList.remove('btn-container__visible');
+    productTitle.innerText = '';
+    productTitle.classList.remove('product__title-visible');
 }

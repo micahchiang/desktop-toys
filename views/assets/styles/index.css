@@ -93,7 +93,7 @@ body {
   transition: transform 1s cubic-bezier(0.68, -0.55, 0.27, 1.55);
 }
 
-.button__container {
+.button__section {
   flex-grow: 1;
   display: flex;
   justify-content: center;
