@@ -31,6 +31,9 @@ function generate() {
         // });
         requestData('POST', '/generate').then((details) => {
             let product = JSON.parse(details);
+            if (!product.DetailPageURL) {
+                return toastr.error('Oh No! Something went wrong. Please wait a few seconds and refresh the page');
+            }
             // setTimeout(() => {
             //     particles.forEach(particle => {
             //        particle.velocity = 0.02;
@@ -45,7 +48,7 @@ function generate() {
             }, 5000);
             productIsDisplayed = true;
         }).catch((err) => {
-            console.log('Error occurred', err.statusText);
+            return toastr.error('Oh No! Something went wrong. Try refreshing the page');
         });
     } else {
         removeLink();

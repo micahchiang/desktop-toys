@@ -25,6 +25,14 @@ body {
   width: 100%;
 }
 
+.desktop__icon {
+  display: block;
+}
+
+.responsive__icon {
+  display: none;
+}
+
 .header__title {
   font-weight: 100;
   font-size: 10vw;
@@ -286,6 +294,14 @@ body {
     flex-direction: column;
   }
 
+  .desktop__icon {
+    display: none;
+  }
+
+  .responsive__icon {
+    display: block;
+  }
+
   .header__title {
     font-size: 9em;
   }
@@ -362,5 +378,21 @@ body {
 
   .footer p {
     font-size: 16px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .header {
+    justify-content: left;
+    align-items: left;
+    flex-direction: column;
+  }
+
+  .btn-container {
+    width: 100%;
+    height: 150px;
+    position: relative;
+    border: 2px solid #000000;
+    text-align: center;
   }
 }

@@ -26,6 +26,7 @@ exports.productGenerate = (req, res) => {
             res.send(payload);
         }).catch((err) => {
             console.log(err.Error);
+            res.send(err.Error);
         });
     })
 };
