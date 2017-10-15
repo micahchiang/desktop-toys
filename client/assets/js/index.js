@@ -20,7 +20,7 @@ let loadingText;
         productTitle = document.getElementById('productTitle');
         loadingGif = document.getElementById('loadingGif');
         loadingText = document.getElementById('loadingText');
-        // generate();
+        generate();
     });
 })();
 
