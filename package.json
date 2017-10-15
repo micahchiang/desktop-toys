@@ -8,7 +8,7 @@
   "scripts": {
     "start": "node app.js"
   },
-  "version": "1.0.0",
+  "version": "1.1.0",
   "dependencies": {
     "amazon-product-api": "^0.4.4",
     "body-parser": "^1.17.2",

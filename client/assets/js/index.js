@@ -20,7 +20,7 @@ let loadingText;
         productTitle = document.getElementById('productTitle');
         loadingGif = document.getElementById('loadingGif');
         loadingText = document.getElementById('loadingText');
-        generate();
+        // generate();
     });
 })();
 
@@ -84,6 +84,12 @@ function requestData(method, url) {
 }
 
 function buildLink(data) {
+    if (!data.image.URL) {
+        generateBtn.classList.remove('generate__btn-disabled');
+        generateContainer.classList.remove('generate__btn-container-loading');
+        loadingText.classList.remove('loading__text-visible');
+        return toastr.error('Oh No! Something went wrong. Try refreshing the page');
+    }
     let aTag = document.createElement('a');
     let img = document.createElement('img');
     aTag.setAttribute('id', 'productLink');
@@ -98,6 +104,12 @@ function buildLink(data) {
 }
 
 function buildInfo(data) {
+    if (!data.DetailPageURL) {
+        generateBtn.classList.remove('generate__btn-disabled');
+        generateContainer.classList.remove('generate__btn-container-loading');
+        loadingText.classList.remove('loading__text-visible');
+        return toastr.error('Oh No! Something went wrong. Try refreshing the page');
+    }
     purchaseBtn.setAttribute('href', data.DetailPageURL);
     purchaseBtn.setAttribute('target', '_blank');
     productTitle.innerText = data.Title;
