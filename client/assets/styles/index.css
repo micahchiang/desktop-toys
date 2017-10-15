@@ -16,6 +16,7 @@ body {
   flex-direction: column;
   padding: 0 2em;
   height: 110vh;
+  font-size: 1.625em;
 }
 
 .header {
@@ -152,8 +153,8 @@ body {
 }
 
 .btn-container {
-  width: 250px;
-  height: 70px;
+  width: 296px;
+  height: 80px;
   position: relative;
   border: 2px solid #000000;
   text-align: center;
@@ -176,7 +177,6 @@ body {
 }
 
 .generate__btn {
-  font-size: 1.5em;
   color: #000000;
   background-color: #ffffff;
   border: 2px solid #000000;
@@ -206,7 +206,6 @@ body {
 }
 
 .loading__text {
-  font-size: 1.5em;
   display: none;
 }
 
@@ -222,7 +221,6 @@ body {
 }
 
 .purchase__btn {
-  font-size: 1.5em;
   color: #000000;
   background-color: #ffffff;
   border: 2px solid #000000;
@@ -266,8 +264,8 @@ body {
 
 .product__title-section {
   display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   flex-grow: 1;
 }
@@ -277,8 +275,7 @@ body {
   opacity: 0;
   transition: all .2s ease;
   width: 50%;
-  padding-right: 4em;
-  text-align: right;
+  text-align: center;
 }
 
 .product__title-visible {
@@ -345,16 +342,10 @@ body {
     font-size: 3em;
   }
 
-  .product__title-section {
-    justify-content: center;
-    align-items: center;
-  }
-
   .product__title {
     width: 100%;
     text-align: center;
     font-size: 3em;
-    padding: 0;
   }
 
   .button__section {
