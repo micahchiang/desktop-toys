@@ -62,6 +62,16 @@ body {
   width: auto;
 }
 
+#loadingGif {
+  height: inherit;
+  width: inherit;
+}
+
+.btn-icon {
+  height: 0.7em;
+  width: auto;
+}
+
 .productContainer-image {
   min-height: 0 !important;
 }
@@ -181,6 +191,10 @@ body {
   background-color: #000000;
 }
 
+.generate__btn svg:hover {
+  color: #ffffff;
+}
+
 .purchase__btn {
   font-size: 1.5em;
   color: #000000;
@@ -214,9 +228,13 @@ body {
 #purchaseBtn {
   text-decoration: none;
   color: #000000;
-  padding: .9em 2.75em;
+  padding: .9em 2.25em;
 }
 #purchaseBtn:hover {
+  color: #ffffff;
+}
+
+#purchaseBtn svg:hover {
   color: #ffffff;
 }
 

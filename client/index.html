@@ -29,7 +29,8 @@
         </header>
         <section id="productSection">
             <div id="productContainer">
-                <canvas id="canvas"></canvas>
+                <!--<canvas id="canvas"></canvas>-->
+                <img id="loadingGif" src="./assets/img/cube-white.gif" alt="loading">
             </div>
             <section class="product__title-section">
                 <p id="productTitle" class="product__title"></p>
@@ -38,7 +39,10 @@
                 <section class="generate__product-container">
                     <div id="generateContainer" class="btn-container">
                         <div id="generateBtn" onclick="generate()" class="generate__btn">
-                            <a>REFRESH</a>
+                            <a>
+                                REFRESH
+                                <img class="btn-icon" src="./assets/img/icon-refresh.png" alt="">
+                            </a>
                         </div>
                         <p id="loadingText" class="loading__text">LOADING GOODIES...</p>
                     </div>
@@ -46,7 +50,10 @@
                 <section class="product__cta-container">
                     <div id="productInfoContainer" class="btn-container btn-container__hidden">
                         <div class="purchase__btn">
-                            <a id="purchaseBtn">BUY NOW</a>
+                            <a id="purchaseBtn">
+                                BUY NOW
+                                <img class="btn-icon" src="./assets/img/icon-link.png" alt="">
+                            </a>
                         </div>
                     </div>
                 </section>
@@ -61,5 +68,4 @@
         </footer>
     </main>
 </body>
-<script src="./assets/js/loading_animation.js"></script>
 </html>

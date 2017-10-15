@@ -6,6 +6,7 @@ let generateContainer;
 let productInfoContainer;
 let purchaseBtn;
 let productTitle;
+let loadingGif;
 
 (()=> {
     document.addEventListener('DOMContentLoaded', () => {
@@ -16,6 +17,7 @@ let productTitle;
         productInfoContainer = document.getElementById('productInfoContainer');
         purchaseBtn = document.getElementById('purchaseBtn');
         productTitle = document.getElementById('productTitle');
+        loadingGif = document.getElementById('loadingGif');
         generate();
     });
 })();
@@ -24,18 +26,18 @@ function generate() {
     generateBtn.className += ' generate__btn-disabled';
     generateContainer.className += ' generate__btn-container-loading';
     if(!productIsDisplayed) {
-        particles.forEach(particle => {
-            particle.velocity = 0.05;
-        });
+        // particles.forEach(particle => {
+        //     particle.velocity = 0.05;
+        // });
         requestData('POST', '/generate').then((details) => {
             let product = JSON.parse(details);
+            // setTimeout(() => {
+            //     particles.forEach(particle => {
+            //        particle.velocity = 0.02;
+            //     });
+            // }, 3500);
             setTimeout(() => {
-                particles.forEach(particle => {
-                   particle.velocity = 0.02;
-                });
-            }, 3500);
-            setTimeout(() => {
-                canvas.style.display = 'none';
+                loadingGif.style.display = 'none';
                 buildLink(product);
                 buildInfo(product);
                 generateBtn.classList.remove('generate__btn-disabled');
@@ -102,13 +104,12 @@ function buildInfo(data) {
 function removeLink() {
     let aTag = document.getElementById('productLink');
     setTimeout(() => {
-        canvas.style.display = 'block';
+        loadingGif.style.display = 'block';
     }, 1700);
     setTimeout(() => {
         aTag.parentNode.removeChild(aTag);
     }, 1500);
     aTag.className += ' fade-out';
-    productIsDisplayed = false;
     productIsDisplayed = false;
 }
 
