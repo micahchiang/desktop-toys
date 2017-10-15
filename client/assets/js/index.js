@@ -7,6 +7,7 @@ let productInfoContainer;
 let purchaseBtn;
 let productTitle;
 let loadingGif;
+let loadingText;
 
 (()=> {
     document.addEventListener('DOMContentLoaded', () => {
@@ -18,36 +19,37 @@ let loadingGif;
         purchaseBtn = document.getElementById('purchaseBtn');
         productTitle = document.getElementById('productTitle');
         loadingGif = document.getElementById('loadingGif');
+        loadingText = document.getElementById('loadingText');
         generate();
     });
 })();
 
 function generate() {
-    generateBtn.className += ' generate__btn-disabled';
-    generateContainer.className += ' generate__btn-container-loading';
+    generateBtn.classList.add('generate__btn-disabled');
+    generateContainer.classList.add('generate__btn-container-loading');
+    loadingText.classList.add('loading__text-visible');
     if(!productIsDisplayed) {
-        // particles.forEach(particle => {
-        //     particle.velocity = 0.05;
-        // });
         requestData('POST', '/generate').then((details) => {
             let product = JSON.parse(details);
             if (!product.DetailPageURL) {
+                generateBtn.classList.remove('generate__btn-disabled');
+                generateContainer.classList.remove('generate__btn-container-loading');
+                loadingText.classList.remove('loading__text-visible');
                 return toastr.error('Oh No! Something went wrong. Please wait a few seconds and refresh the page');
             }
-            // setTimeout(() => {
-            //     particles.forEach(particle => {
-            //        particle.velocity = 0.02;
-            //     });
-            // }, 3500);
             setTimeout(() => {
                 loadingGif.style.display = 'none';
                 buildLink(product);
                 buildInfo(product);
                 generateBtn.classList.remove('generate__btn-disabled');
                 generateContainer.classList.remove('generate__btn-container-loading');
+                loadingText.classList.remove('loading__text-visible');
             }, 5000);
             productIsDisplayed = true;
         }).catch((err) => {
+            generateBtn.classList.remove('generate__btn-disabled');
+            generateContainer.classList.remove('generate__btn-container-loading');
+            loadingText.classList.remove('loading__text-visible');
             return toastr.error('Oh No! Something went wrong. Try refreshing the page');
         });
     } else {
@@ -89,11 +91,10 @@ function buildLink(data) {
     aTag.setAttribute('target', '_blank');
     img.setAttribute('src', data.image.URL);
     aTag.appendChild(img);
-    aTag.className += 'fade-in';
-    img.className += 'product__image';
-    productContainer.className += 'productContainer-image';
+    img.classList.add('product__image');
+    productContainer.classList.add('productContainer-image');
     productContainer.appendChild(aTag);
-    // productContainer.className += ' slide-left';
+    aTag.classList.add('fade-in');
 }
 
 function buildInfo(data) {

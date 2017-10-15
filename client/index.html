@@ -23,18 +23,13 @@
 <body>
     <main class="app__container">
         <header class="header">
-            <h1 class="header__title">DESKTOP</h1>
-            <span class="header__title-space-container">
-                <div class="header__title-spacer"></div>
-                <h1 class="header__title">TOYS</h1>
-            </span>
+            <img id="headerImgDesktop" class="header__img" src="./assets/img/DT-logo-full.svg" alt="DESKTOP TOYS">
+            <img id="headerImgResponsive" class="header__img" src="./assets/img/DT-logo-responsive.svg" alt="DESKTOP TOYS">
         </header>
         <section id="productSection">
             <div id="productContainer">
                 <!--<canvas id="canvas"></canvas>-->
-                <video id="loadingGif" loop autoplay>
-                    <source src="./assets/img/cube-whitemp4.mp4" type="video/mp4">
-                </video>
+                <img id="loadingGif" src="./assets/img/cube-optimized.gif" alt="">
             </div>
             <section class="product__title-section">
                 <p id="productTitle" class="product__title"></p>
@@ -45,7 +40,7 @@
                         <div id="generateBtn" onclick="generate()" class="generate__btn">
                             <a>
                                 REFRESH
-                                <img class="btn-icon" src="./assets/img/icon-refresh.png" alt="">
+                                <img class="btn-icon" src="./assets/img/icon-refresh.svg" alt="">
                             </a>
                         </div>
                         <p id="loadingText" class="loading__text">LOADING GOODIES...</p>
@@ -56,7 +51,7 @@
                         <div class="purchase__btn">
                             <a id="purchaseBtn">
                                 BUY NOW
-                                <img class="btn-icon" src="./assets/img/icon-link.png" alt="">
+                                <img class="btn-icon" src="./assets/img/icon-link.svg" alt="">
                             </a>
                         </div>
                     </div>
