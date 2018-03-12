@@ -4,10 +4,11 @@ var utilities = require('../helpers/Utilities');
 var terms = require('./search_terms.json');
 var util = require('util');
 
+// aws api creds go here.
 var client = amazon.createClient({
-    awsId: 'AKIAIEILMMUXXKHQYMKQ',
-    awsSecret: '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',
-    awsTag: 'mkccorp-20'
+    awsId: '',
+    awsSecret: '',
+    awsTag: ''
 });
 
 var limiter = new RateLimiter(1, 2000);
